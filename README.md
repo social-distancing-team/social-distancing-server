@@ -7,4 +7,4 @@ The backend for the Social Distancing Mobile Application
 	python -m pip install -r requirements.txt
 
 ## Run Server
-	python .manage.py runserver 0.0.0.0:8000
+	python .manage.py runserver 0.0.0.0:8000 

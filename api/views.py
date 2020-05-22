@@ -1,11 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import User
+from django.conf import settings
+from firebase_admin import credentials, initialize_app
 
-def home(request):
-    user = User(username='mark')
-    user.save()
-    all_Users = User.collection.fetch()
-    for u in all_Users:
-        print("{}:{}".format(u.id, u.username))
-    return HttpResponse("<h1>Home</h1>")
+cred = credentials.Certificate(settings.GOOGLE_APPLICATION_CREDENTIALS)
+db_app = initialize_app(cred, {'databaseURL': 'https://social-distancing-uts.firebaseio.com'}, name="db_app")

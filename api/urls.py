@@ -1,6 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='api-home'),
+    path('users/', include('users_api.urls')),
+    path('messages/', include('messages_api.urls'))
 ]

@@ -1,5 +1,4 @@
 django
 firebase_admin
-django-firebase-orm
-fireo
-python-dotenv
+djangorestframework
+drf-firebase-auth

@@ -2,5 +2,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('list/', views.list, name='api-messages-list')
+    path('list/', views.list_messages, name='api-messages-list')
 ]

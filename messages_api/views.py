@@ -11,7 +11,7 @@ db = firestore.client()
 # For server testing purposes leave commented
 #@authentication_classes([FirebaseAuthentication])
 @api_view(['GET'])
-def list(request):
+def list_messages(request):
     messages_ref = db.collection(u'Messages')
     docs = messages_ref.stream()
     message_list = {}

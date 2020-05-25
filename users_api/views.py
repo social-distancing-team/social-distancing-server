@@ -8,9 +8,9 @@ db = firestore.client()
 
 # Uncomment to require Authorization from Mobile App
 # For server testing purposes leave commented
-#@authentication_classes([FirebaseAuthentication])
 @api_view(['GET'])
-def list(request):
+@authentication_classes([FirebaseAuthentication])
+def list_users(request):
     users_ref = db.collection(u'Users')
     docs = users_ref.stream()
     user_list = {}

@@ -5,6 +5,7 @@ import sys
 import csv
 ################################################################################
 
+#Output query results to TSV for later use
 def tsvOutput(table):
     with open(args.tsv_output,'w') as f_output:
         tsv_output = csv.writer(f_output, delimiter='\t')
@@ -14,6 +15,7 @@ def tsvOutput(table):
 
 ################################################################################
 
+# search users by name 
 def searchUsers():
 
     tempTable = []
@@ -36,6 +38,8 @@ def searchUsers():
     tsvOutput(tempTable)
 
 ################################################################################
+
+# search lists
 def searchLists():
 
     tempTable = []
@@ -58,6 +62,7 @@ def searchLists():
 
 ################################################################################        
 
+# main
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
@@ -67,6 +72,7 @@ if __name__ == '__main__':
     # Get and check options
     args = None
 
+    # Check for argument flags
     if(len(sys.argv) == 1):
         parser.print_help()
         sys.exit(0)
@@ -81,6 +87,7 @@ if __name__ == '__main__':
         print("Query type: ")
         print(args.query_type)
 
+    # Try query 
     try:
         if(args.query_type == 'user'):
             searchUsers()

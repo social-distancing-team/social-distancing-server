@@ -10,7 +10,8 @@ db = firestore.client()
 
 @api_view(['GET'])
 #@authentication_classes([FirebaseAuthentication])
-def list_users(request):
+# users API call
+def list_users(request): 
 
     docs = db.collection(u'Users').stream()
     users_list = {}
@@ -20,6 +21,7 @@ def list_users(request):
 
 @api_view(['GET'])
 #@authentication_classes([FirebaseAuthentication])
+# chats API call
 def list_chats(request):
     
     docs = db.collection(u'Chats').stream()
@@ -30,6 +32,7 @@ def list_chats(request):
 
 @api_view(['GET'])
 #@authentication_classes([FirebaseAuthentication])
+# lists API call
 def list_lists(request):
     
     docs = db.collection(u'Lists').stream()

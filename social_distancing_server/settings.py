@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'drf_firebase_auth',
     'api.apps.ApiConfig',
     'users_api.apps.UsersApiConfig', 
-    'messages_api.apps.MessagesApiConfig', 
+    'messages_api.apps.MessagesApiConfig',
+    'query_api.apps.QueryApiConfig'
 ]
 
 MIDDLEWARE = [

@@ -1,18 +1,13 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, authentication_classes
-import firebase_admin
-from firebase_admin import firestore
 from drf_firebase_auth.authentication import FirebaseAuthentication
+from firebase_admin import firestore 
 
 db = firestore.client()
 
-#authentication_classes commented for testing, uncomment to allow authorisation
-
 @api_view(['GET'])
 #@authentication_classes([FirebaseAuthentication])
-# users API call
-def list_users(request): 
-
+def query_users(request):
     docs = db.collection(u'Users').stream()
     users_list = {}
     for doc in docs:
@@ -21,9 +16,7 @@ def list_users(request):
 
 @api_view(['GET'])
 #@authentication_classes([FirebaseAuthentication])
-# chats API call
-def list_chats(request):
-    
+def query_chats(request):
     docs = db.collection(u'Chats').stream()
     chats_list = {}
     for doc in docs:
@@ -32,9 +25,7 @@ def list_chats(request):
 
 @api_view(['GET'])
 #@authentication_classes([FirebaseAuthentication])
-# lists API call
-def list_lists(request):
-    
+def query_lists(request):
     docs = db.collection(u'Lists').stream()
     lists_list = {}
     for doc in docs:
